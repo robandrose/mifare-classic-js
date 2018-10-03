@@ -39,7 +39,7 @@ function read(callback) {
             // parse the UID from the mifare-classic-read-ndef output
             uid = result.match(/with UID ([A-F0-9]*)/i)[1];
         }                                  
-        if (code === 0 && errorMessage && errorMessage.length === 0) {
+        if (code === 0 && errorMessage.length === 0) {
             fs.readFile(fileName, function (err, data) {
                 callback(err, data, uid);
                 fs.unlinkSync(fileName);
